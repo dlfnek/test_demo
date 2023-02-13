@@ -28,7 +28,7 @@ public class MemberService {
     }
 
     public Members getMember(Long idx) {
-        return memberRepository.findById(idx).orElseThrow();
+        return memberRepository.findById(idx).get();
     }
 
     @Transactional
