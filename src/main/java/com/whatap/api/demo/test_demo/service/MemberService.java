@@ -33,7 +33,7 @@ public class MemberService {
 
     @Transactional
     public Members modifier(Long idx, Members modifierMembers) {
-        Members members = memberRepository.findById(idx).orElseThrow();
+        Members members = memberRepository.findById(idx).get();
         members.updateMembers(modifierMembers.getUserName(), modifierMembers.getPassword());
         memberRepository.save(members);
         return members;
