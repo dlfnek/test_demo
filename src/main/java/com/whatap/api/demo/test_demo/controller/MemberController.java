@@ -49,7 +49,7 @@ public class MemberController {
     }
 
     private void validateIsNull(String username, String password) {
-        if (username.isBlank() || password.isBlank()) {
+        if (username.isEmpty() || password.isEmpty()) {
             throw new IllegalArgumentException();
         }
     }
