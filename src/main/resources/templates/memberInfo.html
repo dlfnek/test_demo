@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Member Info</title>
 </head>
 <body>
-$END$
+<h1>Member Info</h1>
+username: <span th:text="${member.userName}"/>
+<br>
+<a th:href="@{/members/{id}/modify(id = ${member.getIdx()})}">변경</a>
+<form th:action="@{/members/{id}/delete(id = ${member.getIdx()})}" th:method="delete">
+    <input type="submit" value="삭제"/>
+</form>
+<br>
+<a href="/">처음으로</a>
 </body>
 </html>

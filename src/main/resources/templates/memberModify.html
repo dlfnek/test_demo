@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Member Modify</title>
 </head>
 <body>
-$END$
+<h1>Member Modify</h1>
+<form th:action="@{/members/{id}/modify(id = ${member.getIdx()})}" th:method="put">
+    username: <input type="text" name="username" th:value="${member.getUserName()}"/>
+    <br>
+    password: <input type="password" name="password" th:value="${member.getPassword()}"/>
+    <br>
+  <input type="submit" value="변경"/>
+</form>
+<br>
+<a href="/">처음으로</a>
 </body>
 </html>

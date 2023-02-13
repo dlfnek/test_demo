@@ -6,6 +6,12 @@
 </head>
 <body>
 <h1>회원 리스트</h1>
-
+<ul th:each="member:${members}">
+    <li>
+        <a th:text="${member.userName}" th:href="@{/members/{id}(id = ${member.getIdx()})}" style="cursor: pointer"></a>
+    </li>
+</ul>
+<br>
+<a href="/">처음으로</a>
 </body>
 </html>
