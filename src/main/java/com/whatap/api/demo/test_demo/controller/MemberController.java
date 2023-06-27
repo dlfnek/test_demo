@@ -2,6 +2,8 @@ package com.whatap.api.demo.test_demo.controller;
 
 import com.whatap.api.demo.test_demo.domain.Members;
 import com.whatap.api.demo.test_demo.service.MemberService;
+
+import java.sql.*;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -66,6 +68,7 @@ public class MemberController {
                              Model model) {
         Members member = memberService.getMember(idx);
         model.addAttribute("member", member);
+
         return "memberInfo";
     }
 
