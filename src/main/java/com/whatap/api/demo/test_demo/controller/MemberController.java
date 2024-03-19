@@ -1,12 +1,16 @@
 package com.whatap.api.demo.test_demo.controller;
 
 import com.whatap.api.demo.test_demo.domain.Members;
+import com.whatap.api.demo.test_demo.repository.SleepSqlExec;
 import com.whatap.api.demo.test_demo.service.MemberService;
 
 import java.sql.*;
 import java.util.List;
+
+import com.whatap.api.demo.test_demo.utils.exception.NotInputParamException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +56,7 @@ public class MemberController {
 
     private void validateIsNull(String username, String password) {
         if (username.isEmpty() || password.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new NotInputParamException("ERR code 'null-001': username, password에서 빈 값이 발생했습니다.");
         }
     }
 
